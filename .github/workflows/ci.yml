@@ -6,7 +6,7 @@ on:
     workflow_dispatch: 
 jobs:
     job1:
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-latest
         steps:
             - name: copy code
               uses: actions/checkout@v5
