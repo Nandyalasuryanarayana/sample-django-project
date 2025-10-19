@@ -2,7 +2,7 @@ name: trigger wf
 on: 
     push:
         branches: 
-            main
+            master
     workflow_dispatch: 
 jobs:
     job1:
