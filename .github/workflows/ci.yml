@@ -1,0 +1,27 @@
+name: trigger wf
+on: 
+    push:
+        branches: 
+            main
+    workflow_dispatch: 
+jobs:
+    job1:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: copy code
+              uses: actions/checkout@v5
+            - name: setup 
+              uses: actions/setup-python@v6
+              with: 
+                python-version: 3.7.2
+            - name: virtualenv
+              run: |
+                pip install virtualenv
+                mkdir envs
+                virtualenv ./envs/
+                source envs/bin/activate
+            - name: install dependencies
+              run: |
+                source envs/bin/activate
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
